@@ -1,0 +1,139 @@
+[settings]
+default_disable = false
+
+# Animations
+animate = true
+animation_duration = 8.5
+animation_fps = 120.0
+animation_easing = "ease_out_cubic"
+
+# Mouse
+focus_follows_mouse = true
+mouse_follows_focus = false
+mouse_hides_on_focus = false
+
+auto_focus_blacklist = []
+
+run_on_start = []
+
+hot_reload = true
+
+[settings.layout]
+mode = "bsp"
+
+[settings.layout.gaps.outer]
+top = 10
+left = 10
+bottom = 10
+right = 10
+
+[settings.layout.gaps.inner]
+horizontal = 8
+vertical = 8
+
+[settings.ui.menu_bar]
+enabled = true
+show_empty = false
+mode = "all"
+active_label = "index"
+display_style = "layout"
+
+[settings.ui.stack_line]
+enabled = false
+horiz_placement = "top"
+vert_placement = "left"
+thickness = 0.0
+spacing = 0.0
+
+[settings.ui.mission_control]
+enabled = true
+fade_enabled = true
+fade_duration_ms = 180.0
+
+[settings.gestures]
+enabled = true
+invert_horizontal_swipe = false
+swipe_vertical_tolerance = 0.4
+skip_empty = true
+fingers = 3
+distance_pct = 0.08
+haptics_enabled = true
+haptic_pattern = "level_change"
+
+[settings.window_snapping]
+drag_swap_fraction = 0.3
+
+[virtual_workspaces]
+enabled = false
+app_rules = [
+  { title_substring = "scratchpad", floating = true },
+]
+
+[modifier_combinations]
+shift_alt = "Alt + Shift"
+ctrl_alt = "Alt + Ctrl"
+ctrl_alt_shift = "Alt + Ctrl + Shift"
+
+[keys]
+# App launchers
+"Alt + Q" = { exec = ["/bin/bash", "-c", "open -na Ghostty"] }
+"Meta + B" = { exec = ["/bin/bash", "-c", "open -a Zen"] }
+"Alt + C" = { exec = ["/bin/bash", "-c", "open -na 'Visual Studio Code'"] }
+"Alt + S" = { exec = ["/bin/bash", "-c", "open -a Spotify"] }
+"Meta + Enter" = { exec = ["/bin/bash", "-c", "open -a Finder"] }
+
+# Window focus
+"Alt + Left" = { move_focus = "left" }
+"Alt + Down" = { move_focus = "down" }
+"Alt + Up" = { move_focus = "up" }
+"Alt + Right" = { move_focus = "right" }
+"Alt + H" = { move_focus = "left" }
+"Alt + J" = { move_focus = "down" }
+"Alt + K" = { move_focus = "up" }
+"Alt + L" = { move_focus = "right" }
+
+# Window swap
+"shift_alt + Left" = { move_node = "left" }
+"shift_alt + Right" = { move_node = "right" }
+"shift_alt + Up" = { move_node = "up" }
+"shift_alt + Down" = { move_node = "down" }
+"shift_alt + H" = { move_node = "left" }
+"shift_alt + L" = { move_node = "right" }
+"shift_alt + K" = { move_node = "up" }
+"shift_alt + J" = { move_node = "down" }
+
+# Workspace switching
+"Ctrl + H" = { exec = ["/bin/bash", "-c", "osascript -e 'tell application \"System Events\" to key code 123 using control down'"] }
+"Ctrl + L" = { exec = ["/bin/bash", "-c", "osascript -e 'tell application \"System Events\" to key code 124 using control down'"] }
+
+# Window resize
+"ctrl_alt + Left" = "resize_window_shrink"
+"ctrl_alt + Down" = "resize_window_shrink"
+"ctrl_alt + Up" = "resize_window_grow"
+"ctrl_alt + Right" = "resize_window_grow"
+"ctrl_alt + H" = "resize_window_shrink"
+"ctrl_alt + J" = "resize_window_shrink"
+"ctrl_alt + K" = "resize_window_grow"
+"ctrl_alt + L" = "resize_window_grow"
+
+# Float toggle
+"Ctrl + X" = "toggle_window_floating"
+"shift_alt + Space" = "toggle_window_floating"
+
+# Fullscreen
+"shift_alt + M" = "toggle_fullscreen"
+"Alt + F" = "toggle_fullscreen_within_gaps"
+
+# Split orientation
+"Alt + O" = "toggle_orientation"
+
+# Scratchpad
+"Meta + Shift + T" = { exec = ["/bin/bash", "-c", "osascript -e 'tell application \"System Events\"' -e 'set found to false' -e 'repeat with p in (every process whose name is \"Ghostty\")' -e 'repeat with w in (every window of p)' -e 'if name of w is \"scratchpad\" then' -e 'set found to true' -e 'if value of attribute \"AXMinimized\" of w then' -e 'set value of attribute \"AXMinimized\" of w to false' -e 'tell application \"Ghostty\" to activate' -e 'else' -e 'set value of attribute \"AXMinimized\" of w to true' -e 'end if' -e 'end if' -e 'end repeat' -e 'end repeat' -e 'end tell' -e 'if not found then do shell script \"open -na Ghostty --args --title=scratchpad\"'"] }
+
+# Mission control
+"ctrl_alt + M" = "show_mission_control_all"
+"ctrl_alt_shift + M" = "show_mission_control_current"
+
+# Debug / restart
+"shift_alt + D" = "debug"
+"ctrl_alt + Q" = "save_and_exit"
