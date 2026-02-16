@@ -1,6 +1,4 @@
-# riftduma-config
-
-My [rift](https://github.com/acsandmann/rift) tiling window manager config for macOS.
+[Rift](https://github.com/acsandmann/rift) tiling window manager config for macOS.
 
 ## Setup
 
